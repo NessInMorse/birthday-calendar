@@ -27,9 +27,9 @@ def getFile(filename = "birthdays.csv",birthdays = []):
         return birthdays
 
 
-def choiceMenu(choice = "-1", functions = ["ADD","PRINT",\
-                                         "REMOVE","SAVE AND QUIT",
-                                           "QUIT"]):
+def choiceMenu(choice = "-1", functions = ["add","print",\
+                                         "remove","save and quit",
+                                           "quit"]):
         """
         prints out all choice a user can make
         in: (optional) choice (for function)
@@ -43,7 +43,7 @@ def choiceMenu(choice = "-1", functions = ["ADD","PRINT",\
                                  for i in range(len(functions))]))
                 choice = input()
                 if not choice.isdigit() and choice in "".join(functions):
-                        choice = str(functions.index(choice))
+                        choice = str(functions.index(choice)+1)
         return int(choice)-1
 
 
@@ -93,7 +93,7 @@ def main():
         makeFile()
         data=getFile()
         choice = 0
-        functions = ("addBirthday(data,choice=choice)","printBirthdays(data)","0","")
+        functions = ("addBirthday(data,choice=choice)","printBirthdays(data)","data","")
         while choice != 3 and choice!=4:
                 choice = choiceMenu()
                 if choice != 3 and choice <4 and choice!="":
