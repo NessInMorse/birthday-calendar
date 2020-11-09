@@ -107,7 +107,7 @@ to remove\n")
                                                         birthdays.index(\
                                                                 indices[int(remove)-1]))
                                                 print(f"{indices[int(remove)-1]} has been removed")
-
+                remove = 0
                 ans = input("Are you done? (y/n)\n")
         return birthdays
 
