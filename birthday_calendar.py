@@ -87,13 +87,38 @@ def printBirthdays(birthdays):
                                else "\n"))
         print("")
         return birthdays
-        
+
+def removeBirthdays(birthdays,remove_name = "", ans="n",indices = [],\
+                    count = 0, remove = 0):
+        while ans=="n":
+                remove_name = input("Which person would you like to remove?\n").strip()
+                for birthday in birthdays:
+                        if remove_name in birthday:
+                                print(f"{count+1:<5}{birthday}")
+                                indices.append(birthday)
+                                count+=1
+                if len(indices)>0:
+                        while remove != "":
+                                remove = input("Give the number of the person \
+to remove\n")
+                                if remove.isdigit() and remove!="":
+                                        if int(remove)<=len(indices):
+                                                birthdays.pop(\
+                                                        birthdays.index(\
+                                                                indices[int(remove)-1]))
+                                                print(f"{indices[int(remove)-1]} has been removed")
+
+                ans = input("Are you done? (y/n)\n")
+        return birthdays
 
 def main():
         makeFile()
         data=getFile()
         choice = 0
-        functions = ("addBirthday(data,choice=choice)","printBirthdays(data)","data","")
+        functions = ("addBirthday(data,choice=choice)",\
+                     "printBirthdays(data)",\
+                     "removeBirthdays(data)",\
+                     "")
         while choice != 3 and choice!=4:
                 choice = choiceMenu()
                 if choice != 3 and choice <4 and choice!="":
