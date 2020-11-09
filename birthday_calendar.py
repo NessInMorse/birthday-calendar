@@ -1,3 +1,11 @@
+"""
+Program that creates birthday strings inside a csv file
+version 1.1
+        Added ability to remove elements within the program
+Marc (NessInMorse)
+9 november 2020
+"""
+
 def makeFile(filename = "birthdays.csv"):
         """
         Creates a new csv file in case there isn't one
@@ -13,7 +21,7 @@ def makeFile(filename = "birthdays.csv"):
                 print(f"{filename} will be re-used")
 
 
-def getFile(filename = "birthdays.csv",birthdays = []):
+def getFile(filename = "birthdays.csv", birthdays = []):
         """
         Gets all the birthdays that are in the file
         in: (optional) filename,
@@ -90,6 +98,11 @@ def printBirthdays(birthdays):
 
 def removeBirthdays(birthdays,remove_name = "", ans="n",indices = [],\
                     count = 0, remove = 0):
+        """
+        Removes element in birthday based on name
+        in: list of all birthdays
+        out: altered birthdays list
+        """
         while ans=="n":
                 remove_name = input("Which person would you like to remove?\n").strip()
                 for birthday in birthdays:
