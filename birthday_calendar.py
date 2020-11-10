@@ -83,17 +83,16 @@ when is the person's birthday\n").lower()
 
 def printBirthdays(birthdays):
         """
-        prints all birthdays of everyone in the list
+        prints out all birthdays of everyone in the list
         in: all the data of the birthdays in a list
-        out: all birthdays printed out
+        out: all birthdays printed out with space for each element
         """
         for line in birthdays:
                 elements = line.strip().split(",")
-                for i in range(len(elements)):
-                        print(f"{elements[i]:^15}",end =\
-                              ("" if i!=len(elements)-1\
-                               else "\n"))
-        print("")
+                print("".join([f"{i:^15}" for i in elements]))
+        #alternative method
+        #[print("".join([f"{i:^15}" for i in line.strip().split(",")]))for line in birthdays]
+        print("\n")
         return birthdays
 
 def removeBirthdays(birthdays,remove_name = "", ans="n",indices = [],\
